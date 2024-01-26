@@ -1,43 +1,25 @@
-# SecureModule Smart Contract
+# Voting System Smart Contract
 
-## Overview
+This Solidity smart contract implements a basic voting system, allowing individuals to cast votes with age verification and group size limits.
 
-SecureModule is a Solidity smart contract designed to provide secure functionalities for age verification, safe division, and group size validation. It incorporates safety measures to prevent common pitfalls, such as underage access, division by zero, and excessive group sizes.
+## Features
 
-## License
+- *Age Verification:* Voters must be 18 years or older to participate.
+- *Group Size Limit:* The total number of votes is limited to a specified group size.
+- *Owner Control:* The owner can adjust the maximum group size.
 
-This contract is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## Contract Functions
 
-## Smart Contract Details
+### vote()
 
-### Functions
+Allows individuals to cast their votes after passing age verification and group size checks.
 
-1. *Check Minimum Age:*
-   - Function Name: checkMinimumAge
-   - Purpose: Verify if an individual is of legal age (21 years or older).
-   - Usage: Utilizes the require statement to enforce the minimum age requirement.
+### setMaxGroupSize(uint newSize)
 
-2. *Safe Division:*
-   - Function Name: divideSafely
-   - Purpose: Perform safe division of two integers, avoiding division by zero.
-   - Usage: Implements the assert statement to ensure the denominator is not zero before division.
+Allows the owner to change the maximum group size.
 
-3. *Validate Group Size:*
-   - Function Name: validateGroupSize
-   - Purpose: Check if the size of a group does not exceed the maximum limit (7 members).
-   - Usage: Utilizes an if statement to validate the group size and reverts with an error message if the limit is exceeded.
+## Usage
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js and npm installed
-- Truffle and Ganache installed (for development)
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone [repository_url]
-   cd [repository_directory]
+1. Deploy the smart contract to a blockchain network.
+2. Call the vote function to cast a vote, ensuring age verification and group size limits are met.
+3. Optionally, the owner can call setMaxGroupSize to adjust the maximum group size.
